@@ -6,6 +6,8 @@
     "clean": "make -C build/src/ clean"
   },
   "dependencies": {
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.4.5"
   }
 }
