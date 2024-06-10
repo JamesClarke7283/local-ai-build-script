@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run Build Task",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/scripts/build.js",
+        "preLaunchTask": "bun: build",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "Run Clean Task",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/scripts/clean.js",
+        "preLaunchTask": "bun: clean",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal"
+      }
+    ]
+  }
+  
