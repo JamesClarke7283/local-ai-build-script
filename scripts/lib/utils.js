@@ -14,7 +14,12 @@ export const compareVersions = (versionA, versionB) => {
 };
 
 export const verifyChecksum = async (filePath, expectedChecksum) => {
-    const fileBuffer = await readFileAsync(filePath);
-    const hash = createHash('sha256').update(fileBuffer).digest('hex');
-    return hash === expectedChecksum;
+    try {
+        const result = await $`sha256sum ${filePath}`.text();
+        const [hash] = result.split(" ");
+        return hash === expectedChecksum;
+    } catch (error) {
+        console.error(`Failed to verify checksum: ${error.message}`);
+        return false;
+    }
 };

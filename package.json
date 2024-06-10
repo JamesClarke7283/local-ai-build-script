@@ -1,9 +1,11 @@
 {
-    "name": "localai",
-    "version": "1.0.0",
-    "scripts": {
-      "build": "bun run scripts/build.js",
-      "clean": "bun run scripts/clean.js"
-    }
+  "name": "localai",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "bun run scripts/build.js",
+    "clean": "bun run scripts/clean.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
-  
+}

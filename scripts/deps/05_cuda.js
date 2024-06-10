@@ -1,6 +1,9 @@
 #!/usr/bin/env bun
 import { $ } from "bun";
 import { existsSync } from "fs";
+import { config } from "dotenv";
+// Load environment variables from .env file
+config();
 
 const cudaVersion = "12-3";
 

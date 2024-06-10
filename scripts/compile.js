@@ -3,10 +3,9 @@
 import { $ } from "bun";
 import { existsSync, chdir } from "fs";
 
-// Set environment variables for Go and ensure they are available
-process.env.GOROOT = '/usr/local/go';
-process.env.GOPATH = `${process.env.HOME}/go`;
-process.env.PATH = `${process.env.PATH}:${process.env.GOROOT}/bin:${process.env.GOPATH}/bin`;
+import { config } from "dotenv";
+// Load environment variables from .env file
+config();
 
 // Clone the repository if it doesn't exist
 const repoPath = 'src/LocalAI';

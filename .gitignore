@@ -1,3 +1,5 @@
 build
 src
 prompt.txt
+node_modules
+bun.lockb

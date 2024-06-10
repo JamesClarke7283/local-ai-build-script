@@ -3,9 +3,9 @@ import { $ } from "bun";
 import { existsSync, unlinkSync } from "fs";
 import { compareVersions, verifyChecksum } from "../lib/utils.js";
 
-process.env.GOROOT = '/usr/local/go';
-process.env.GOPATH = `${process.env.HOME}/go`;
-process.env.PATH = `${process.env.PATH}:${process.env.GOROOT}/bin:${process.env.GOPATH}/bin:${process.env.HOME}/.local/bin`;
+import { config } from "dotenv";
+// Load environment variables from .env file
+config();
 
 const goTarball = "go1.22.4.linux-amd64.tar.gz";
 const goTarballUrl = `https://go.dev/dl/${goTarball}`;
@@ -43,14 +43,16 @@ if (goVersionInstalled) {
         if (!existsSync(`build/${goTarball}`)) {
             await $`wget -P build/ ${goTarballUrl}`;
         }
+        console.log("Verifying Go Download Checksum...");
 
         if (!await verifyChecksum(`build/${goTarball}`, goTarballChecksum)) {
             console.log("Checksum verification failed, re-downloading tarball...");
             unlinkSync(`build/${goTarball}`);
             await $`wget -P build/ ${goTarballUrl}`;
         }
-
+        console.log("Removing old Go install...");
         await $`sudo rm -rf /usr/local/go`;
+        console.log("Unpacking new Go install");
         await $`sudo tar -C /usr/local -xzf build/${goTarball}`;
         process.env.PATH = `${process.env.PATH}:/usr/local/go/bin`;
     }
