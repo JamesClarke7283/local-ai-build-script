@@ -31,8 +31,5 @@ try {
     await $`unzip -o build/${protocZip} -d ${protocInstallDir}`;
 }
 
-
 await $`go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.34.0`;
 await $`go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@8ba23be9613c672d40ae261d2a1335d639bdd59b`;
-
-//await $`source /opt/intel/oneapi/setvars.sh`;

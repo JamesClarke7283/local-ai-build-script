@@ -2,8 +2,8 @@
 import { $ } from "bun";
 import { existsSync, unlinkSync } from "fs";
 import { compareVersions, verifyChecksum } from "../lib/utils.js";
-
 import { config } from "dotenv";
+
 // Load environment variables from .env file
 config();
 

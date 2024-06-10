@@ -2,8 +2,8 @@
   "name": "localai",
   "version": "1.0.0",
   "scripts": {
-    "build": "bun run scripts/build.js",
-    "clean": "bun run scripts/clean.js"
+    "build": "bun run main.js",
+    "clean": "make -C build/src/ clean"
   },
   "dependencies": {
     "dotenv": "^16.4.5"

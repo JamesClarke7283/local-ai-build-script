@@ -8,13 +8,13 @@ import { config } from "dotenv";
 config();
 
 // Clone the repository if it doesn't exist
-const repoPath = 'src/LocalAI';
+const repoPath = 'build/src';
 
 if (!existsSync(repoPath)) {
     console.log('Cloning repository...');
     await $`git clone --recursive --depth 1 https://github.com/mudler/LocalAI.git ${repoPath}`;
 } else {
-    console.log('LocalAI directory already exists in src/, skipping clone.');
+    console.log(`LocalAI directory already exists in ${repoPath}, skipping clone.`);
 }
 
 // Ensure protoc is installed correctly and check its version
