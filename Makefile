@@ -5,8 +5,8 @@ export GOPATH=$(HOME)/go
 export PATH := $(GOROOT)/bin:$(GOPATH)/bin:$(PATH)
 
 build:
-	bash scripts/install-deps.sh
-	bash scripts/build.sh
+	bun run scripts/install-deps.js
+	bun run scripts/build.js
 
 clean:
 	if [ -d "src/LocalAI" ]; then \
